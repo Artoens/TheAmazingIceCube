@@ -1,0 +1,30 @@
+
+SupaHeroForm:
+    rows: 5
+    cols: 1
+    reported_spr: reported
+    detail_txt: detail
+    Label:
+        text: str(len(root.reported)) + ' reported comments loaded.'
+        size_hint_y: 1
+    Spinner:
+        id: reported
+        values: root.heros
+        size_hint_y: 1
+        on_text: root.showdetail(self.text)
+    TextInput:
+        id: detail
+        readonly: True
+        size_hint_y: 6
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 1
+        Button:
+            text: 'Comment OK'
+            on_press: root.commentok()
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 1
+        Button:
+            text: 'Delete'
+            on_press: root.delete()
